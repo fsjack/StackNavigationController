@@ -1,5 +1,5 @@
 //
-//  WUBaseNavigationController.h
+//  SNBaseNavigationController.h
 //
 //  Created by Jackie CHEUNG on 12-11-14.
 //  Copyright (c) 2012年 Jackie. All rights reserved.
@@ -12,34 +12,34 @@
 #warning "QuartzCore framework not found in project, or not included in precompiled header. transition animation functionality will not be available."
 #endif
 
-extern CGFloat const WUBaseNavigationControllerTransitionDuration;
-extern CGFloat const WUBaseNavigationControllerHideShowBarDuration;
+extern CGFloat const SNBaseNavigationControllerTransitionDuration;
+extern CGFloat const SNBaseNavigationControllerHideShowBarDuration;
 
-typedef NS_ENUM(NSInteger, WUBaseNavigationControllerTranstionDirection) {
-    WUBaseNavigationControllerTranstionDirectionFromTop     = 1,
-    WUBaseNavigationControllerTranstionDirectionFromBottom  = 2,
-    WUBaseNavigationControllerTranstionDirectionFromLeft    = 3,
-    WUBaseNavigationControllerTranstionDirectionFromRight   = 4
+typedef NS_ENUM(NSInteger, SNBaseNavigationControllerTranstionDirection) {
+    SNBaseNavigationControllerTranstionDirectionFromTop     = 1,
+    SNBaseNavigationControllerTranstionDirectionFromBottom  = 2,
+    SNBaseNavigationControllerTranstionDirectionFromLeft    = 3,
+    SNBaseNavigationControllerTranstionDirectionFromRight   = 4
 };
 
-typedef NS_ENUM(NSInteger, WUBaseNavigationTransitionStyle) {
-    WUBaseNavigationTransitionStyleDefault,  // Push/Pop tranistion style
-    WUBaseNavigationTransitionStyleStack     // Stack transiton style
+typedef NS_ENUM(NSInteger, SNBaseNavigationTransitionStyle) {
+    SNBaseNavigationTransitionStyleDefault,  // Push/Pop tranistion style
+    SNBaseNavigationTransitionStyleStack     // Stack transiton style
 };
 
 /*!
- WUBaseNavigationController manages a stack of view controllers and a navigation bar.
+ SNBaseNavigationController manages a stack of view controllers and a navigation bar.
  It performs horizontal view transitions for pushed and popped views while keeping the navigation bar in sync.
  
- Most clients will not need to subclass WUBaseNavigationController.
+ Most clients will not need to subclass SNBaseNavigationController.
  
  If a navigation controller is nested in a tabbar controller, it uses the title and toolbar attributes of the bottom view controller on the stack.
  
- WUBaseNavigationController is rotatable if its top view controller is rotatable.
+ SNBaseNavigationController is rotatable if its top view controller is rotatable.
  Navigation between controllers with non-uniform rotatability is currently not supported.
  */
-@protocol WUBaseNavigationControllerDelegate;
-@interface WUBaseNavigationController : UIViewController{ //Simple Factory Pattern
+@protocol SNBaseNavigationControllerDelegate;
+@interface SNBaseNavigationController : UIViewController{ //Simple Factory Pattern
 @protected
     struct {
         unsigned int isAlreadyPoppingNavigationItem:1;
@@ -79,44 +79,44 @@ typedef NS_ENUM(NSInteger, WUBaseNavigationTransitionStyle) {
 /** The navigation bar managed by the controller. Pushing, popping or setting navigation items on a managed navigation bar is not supported. */
 @property (nonatomic,readonly) UINavigationBar *navigationBar;
 
-@property(nonatomic, weak) id<WUBaseNavigationControllerDelegate> delegate;
+@property(nonatomic, weak) id<SNBaseNavigationControllerDelegate> delegate;
 
 /** NavigationController transition style*/
-@property (nonatomic,readonly) WUBaseNavigationTransitionStyle navigationTranstionStyle;
+@property (nonatomic,readonly) SNBaseNavigationTransitionStyle navigationTranstionStyle;
 
 @end
 
-@interface WUBaseNavigationController (WUBaseNavigationControllerCreation)
+@interface SNBaseNavigationController (SNBaseNavigationControllerCreation)
 /** Convenience method generate navigation controller with different transition style. */
-+ (id)navigationWithRootController:(UIViewController *)rootViewController navigationTransitionStyle:(WUBaseNavigationTransitionStyle)transtionStyle;
++ (id)navigationWithRootController:(UIViewController *)rootViewController navigationTransitionStyle:(SNBaseNavigationTransitionStyle)transtionStyle;
 @end
 
 /** SHOULD NOT call or rewrite these method except for that you want to wirte your own transtion animation */
-@interface WUBaseNavigationController (WUBaseNavigationControllerProtectedMethod)
+@interface SNBaseNavigationController (SNBaseNavigationControllerProtectedMethod)
 - (void)transitionFromViewController:(UIViewController *)fromViewController
                     toViewController:(UIViewController *)toViewController
                             duration:(NSTimeInterval)duration
-                           direction:(WUBaseNavigationControllerTranstionDirection)direction
+                           direction:(SNBaseNavigationControllerTranstionDirection)direction
                           completion:(void (^)(BOOL))completion;
 
 - (void)transitionNavigationBarHidden:(BOOL)hidden
                              duration:(NSTimeInterval)duration
-                            direction:(WUBaseNavigationControllerTranstionDirection)direction
+                            direction:(SNBaseNavigationControllerTranstionDirection)direction
                            completion:(void (^)(BOOL))completion;
 
 - (void)setViewControllers:(NSArray *)viewControllers animated:(BOOL)animated completion:(void (^)(void))completion NS_AVAILABLE_IOS(3_0);
 @end
 
-@protocol WUBaseNavigationControllerDelegate <NSObject>
+@protocol SNBaseNavigationControllerDelegate <NSObject>
 @optional
 // Called when the navigation controller shows a new top view controller via a push, pop or setting of the view controller stack.
-- (void)navigationController:(WUBaseNavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated;
-- (void)navigationController:(WUBaseNavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated;
+- (void)navigationController:(SNBaseNavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated;
+- (void)navigationController:(SNBaseNavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated;
 
 @end
 
 
-@interface UIViewController (WUBaseNavigationController)
-@property(nonatomic,readonly,retain) WUBaseNavigationController *baseNavigationController;
+@interface UIViewController (SNBaseNavigationController)
+@property(nonatomic,readonly,retain) SNBaseNavigationController *baseNavigationController;
 @property(nonatomic,readonly,retain) UINavigationController *navigationController;
 @end

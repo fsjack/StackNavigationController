@@ -1,19 +1,19 @@
 //
-//  WUBaseNavigationController.m
+//  SNBaseNavigationController.m
 //
 //  Created by Jackie CHEUNG on 12-11-14.
 //  Copyright (c) 2012年 Jackie. All rights reserved.
 //
 
-#import "WUBaseNavigationController.h"
-CGFloat const WUBaseNavigationControllerTransitionDuration  = .4f;
-CGFloat const WUBaseNavigationControllerHideShowBarDuration = .3f;
+#import "SNBaseNavigationController.h"
+CGFloat const SNBaseNavigationControllerTransitionDuration  = .4f;
+CGFloat const SNBaseNavigationControllerHideShowBarDuration = .3f;
 
-@interface WUBaseNavigationController ()<UINavigationBarDelegate>
+@interface SNBaseNavigationController ()<UINavigationBarDelegate>
 @property (nonatomic,weak) UINavigationBar *navigationBar;
 @end
 
-@implementation WUBaseNavigationController
+@implementation SNBaseNavigationController
 #pragma mark Transition 
 /**
     @name   Push transition animation
@@ -26,7 +26,7 @@ CGFloat const WUBaseNavigationControllerHideShowBarDuration = .3f;
 - (void)transitionFromViewController:(UIViewController *)fromViewController
                     toViewController:(UIViewController *)toViewController
                             duration:(NSTimeInterval)duration
-                           direction:(WUBaseNavigationControllerTranstionDirection)direction
+                           direction:(SNBaseNavigationControllerTranstionDirection)direction
                           completion:(void (^)(BOOL))completion{
     
     NSAssert(fromViewController != toViewController, @"from viewController should not equal to to viewController");
@@ -40,19 +40,19 @@ CGFloat const WUBaseNavigationControllerHideShowBarDuration = .3f;
     CGRect toModifiedRect   = toViewController.view.frame;
     
     switch (direction) {
-        case WUBaseNavigationControllerTranstionDirectionFromTop:
+        case SNBaseNavigationControllerTranstionDirectionFromTop:
             fromModifiedRect.origin.y   = CGRectGetMaxY(fromViewController.view.frame);
             toOriginalRect.origin.y     = CGRectGetMinY(toViewController.view.frame) - CGRectGetHeight(toViewController.view.bounds);
             break;
-        case WUBaseNavigationControllerTranstionDirectionFromBottom:
+        case SNBaseNavigationControllerTranstionDirectionFromBottom:
             fromModifiedRect.origin.y   = CGRectGetMinY(fromViewController.view.frame) - CGRectGetHeight(fromViewController.view.bounds);
             toOriginalRect.origin.y     = CGRectGetMaxY(toViewController.view.frame);
             break;
-        case WUBaseNavigationControllerTranstionDirectionFromLeft:
+        case SNBaseNavigationControllerTranstionDirectionFromLeft:
             fromModifiedRect.origin.x   = CGRectGetMaxX(fromViewController.view.frame);
             toOriginalRect.origin.x     = CGRectGetMinX(toViewController.view.frame) - CGRectGetWidth(toViewController.view.bounds);
             break;
-        case WUBaseNavigationControllerTranstionDirectionFromRight:
+        case SNBaseNavigationControllerTranstionDirectionFromRight:
             fromModifiedRect.origin.x   = CGRectGetMinX(fromViewController.view.frame) - CGRectGetWidth(fromViewController.view.bounds);
             toOriginalRect.origin.x     = CGRectGetMaxX(toViewController.view.frame);
             break;
@@ -86,12 +86,12 @@ CGFloat const WUBaseNavigationControllerHideShowBarDuration = .3f;
     @discussion we need to deal with different situration when performing different direction transion,and when it's not transitioning.
     @params hidden          hidden or not
     @params duration        animation duration
-    @params direction       transion direction.it's actually controlled by isAlreadyPoppingNavigationItem flag in _navigationControllerFlags.its 3 bit width variable that not only save WUBaseNavigationControllerTranstionDirection state but also,as it's name indicated,save if navigation controller is in transitioning state.
+    @params direction       transion direction.it's actually controlled by isAlreadyPoppingNavigationItem flag in _navigationControllerFlags.its 3 bit width variable that not only save SNBaseNavigationControllerTranstionDirection state but also,as it's name indicated,save if navigation controller is in transitioning state.
     @params completion      completion block
  */
 - (void)transitionNavigationBarHidden:(BOOL)hidden
                              duration:(NSTimeInterval)duration
-                            direction:(WUBaseNavigationControllerTranstionDirection)direction
+                            direction:(SNBaseNavigationControllerTranstionDirection)direction
                            completion:(void (^)(BOOL))completion{
     
     UINavigationBar *navigationBar = self.navigationBar;
@@ -104,26 +104,26 @@ CGFloat const WUBaseNavigationControllerHideShowBarDuration = .3f;
     void (^defaultAnimation)(void) = nil; /** need to change view controller view frame when performing default navigation bar hidden animation */
     
     switch (direction) {
-        case WUBaseNavigationControllerTranstionDirectionFromTop:
+        case SNBaseNavigationControllerTranstionDirectionFromTop:
             if(hidden) modifiedRect.origin.y = CGRectGetMinY(navigationBar.frame) + CGRectGetHeight(self.view.bounds);
             else       originalRect.origin.y = CGRectGetMinY(navigationBar.frame) - CGRectGetHeight(self.view.bounds);
             break;
-        case WUBaseNavigationControllerTranstionDirectionFromBottom:
+        case SNBaseNavigationControllerTranstionDirectionFromBottom:
             if(hidden) modifiedRect.origin.y = CGRectGetMinY(navigationBar.frame) - CGRectGetHeight(self.view.bounds);
             else       originalRect.origin.y = CGRectGetMinY(navigationBar.frame) + CGRectGetHeight(self.view.bounds);
             break;
-        case WUBaseNavigationControllerTranstionDirectionFromLeft:
+        case SNBaseNavigationControllerTranstionDirectionFromLeft:
             if(hidden) modifiedRect.origin.x = CGRectGetMinX(navigationBar.frame) + CGRectGetWidth(navigationBar.bounds);
             else       originalRect.origin.x = CGRectGetMinX(navigationBar.frame) - CGRectGetWidth(navigationBar.bounds);
             break;
-        case WUBaseNavigationControllerTranstionDirectionFromRight:
+        case SNBaseNavigationControllerTranstionDirectionFromRight:
             if(hidden) modifiedRect.origin.x = CGRectGetMinX(navigationBar.frame) - CGRectGetWidth(navigationBar.bounds);
             else       originalRect.origin.x = CGRectGetMinX(navigationBar.frame) + CGRectGetWidth(navigationBar.bounds);
             break;
         default:
             if(hidden) modifiedRect.origin.y = CGRectGetMinY(navigationBar.frame) - CGRectGetHeight(navigationBar.bounds);
             else       originalRect.origin.y = CGRectGetMinY(navigationBar.frame) - CGRectGetHeight(navigationBar.bounds);
-            WUBaseNavigationController * __weak weakSelf = self;
+            SNBaseNavigationController * __weak weakSelf = self;
             defaultAnimation = ^{
                 [weakSelf _configureViewControllerFrame:weakSelf.topViewController];
             };
@@ -303,7 +303,7 @@ CGFloat const WUBaseNavigationControllerHideShowBarDuration = .3f;
     _navigationControllerFlags.isNavigationControllerPoping = pop;
     
     /** decide what direction is transtion from */
-    _navigationControllerFlags.isTransitioning = pop ? WUBaseNavigationControllerTranstionDirectionFromLeft : WUBaseNavigationControllerTranstionDirectionFromRight;
+    _navigationControllerFlags.isTransitioning = pop ? SNBaseNavigationControllerTranstionDirectionFromLeft : SNBaseNavigationControllerTranstionDirectionFromRight;
     _navigationControllerFlags.isTransitioning = animated ? _navigationControllerFlags.isTransitioning : NO;
     
     UIViewController *fromViewController = self.topViewController;
@@ -311,7 +311,7 @@ CGFloat const WUBaseNavigationControllerHideShowBarDuration = .3f;
     NSArray *originalViewControllers     = self.viewControllers;
     
     /*!!! we have done all view hierarchy managing work before going to transition */
-    WUBaseNavigationController * __weak weakSelf = self;    
+    SNBaseNavigationController * __weak weakSelf = self;    
     [self.viewControllers enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id obj, NSUInteger idx, BOOL *stop){
         UIViewController *viewController = (UIViewController *)obj;
         [viewController removeFromParentViewController];
@@ -362,13 +362,13 @@ CGFloat const WUBaseNavigationControllerHideShowBarDuration = .3f;
     if(pop){
         [self transitionFromViewController:fromViewController
                           toViewController:toViewController
-                                  duration:animated ? WUBaseNavigationControllerTransitionDuration : 0.0f
+                                  duration:animated ? SNBaseNavigationControllerTransitionDuration : 0.0f
                                  direction:_navigationControllerFlags.isTransitioning
                                 completion:endTransitionBlock];
     }else{
         [self transitionFromViewController:fromViewController
                           toViewController:toViewController
-                                  duration:animated ? WUBaseNavigationControllerTransitionDuration : 0.0f
+                                  duration:animated ? SNBaseNavigationControllerTransitionDuration : 0.0f
                                  direction:_navigationControllerFlags.isTransitioning
                                 completion:endTransitionBlock];
     }
@@ -378,8 +378,8 @@ CGFloat const WUBaseNavigationControllerHideShowBarDuration = .3f;
 
 
 #pragma mark Property
-- (WUBaseNavigationTransitionStyle)navigationTranstionStyle{
-    return WUBaseNavigationTransitionStyleDefault;
+- (SNBaseNavigationTransitionStyle)navigationTranstionStyle{
+    return SNBaseNavigationTransitionStyleDefault;
 }
 
 - (UIViewController *)topViewController{
@@ -416,7 +416,7 @@ CGFloat const WUBaseNavigationControllerHideShowBarDuration = .3f;
     
     if(animated)
         [self transitionNavigationBarHidden:hidden
-                                   duration:WUBaseNavigationControllerTransitionDuration
+                                   duration:SNBaseNavigationControllerTransitionDuration
                                   direction:_navigationControllerFlags.isTransitioning
                                  completion:completionBlock];
     else
@@ -459,34 +459,34 @@ CGFloat const WUBaseNavigationControllerHideShowBarDuration = .3f;
 
 @end
 
-#import "WUStackBaseNavigationController.h"
-@implementation WUBaseNavigationController (WUBaseNavigationControllerCreation)
+#import "SNStackBaseNavigationController.h"
+@implementation SNBaseNavigationController (SNBaseNavigationControllerCreation)
 /** Factory Method : generate different product depend on transitionStyle passing in. */
-+ (id)navigationWithRootController:(UIViewController *)rootViewController navigationTransitionStyle:(WUBaseNavigationTransitionStyle)transtionStyle{
-    WUBaseNavigationController *navigationController = nil;
++ (id)navigationWithRootController:(UIViewController *)rootViewController navigationTransitionStyle:(SNBaseNavigationTransitionStyle)transtionStyle{
+    SNBaseNavigationController *navigationController = nil;
     switch (transtionStyle) {
-        case WUBaseNavigationTransitionStyleStack:
-            navigationController = [[WUStackBaseNavigationController alloc] initWithRootViewController:rootViewController];
+        case SNBaseNavigationTransitionStyleStack:
+            navigationController = [[SNStackBaseNavigationController alloc] initWithRootViewController:rootViewController];
             break;
         default:
-            navigationController = [[WUBaseNavigationController alloc] initWithRootViewController:rootViewController];
+            navigationController = [[SNBaseNavigationController alloc] initWithRootViewController:rootViewController];
             break;
     }
     return navigationController;
 }
 @end
 
-@implementation UIViewController (WUBaseNavigationController)
-- (WUBaseNavigationController *)baseNavigationController{
-    WUBaseNavigationController *baseNavigationController = (WUBaseNavigationController *)self.parentViewController;
-    if([baseNavigationController isKindOfClass:[WUBaseNavigationController class]]) return baseNavigationController;
+@implementation UIViewController (SNBaseNavigationController)
+- (SNBaseNavigationController *)baseNavigationController{
+    SNBaseNavigationController *baseNavigationController = (SNBaseNavigationController *)self.parentViewController;
+    if([baseNavigationController isKindOfClass:[SNBaseNavigationController class]]) return baseNavigationController;
     else return nil;
 }
 
 - (UINavigationController *)navigationController{
     UIViewController *parentViewController = self.parentViewController;
     while (parentViewController) {
-        if([parentViewController isKindOfClass:[UINavigationController class]] || [parentViewController isKindOfClass:[WUBaseNavigationController class]]) break;
+        if([parentViewController isKindOfClass:[UINavigationController class]] || [parentViewController isKindOfClass:[SNBaseNavigationController class]]) break;
         else parentViewController = (UIViewController *)[parentViewController nextResponder];
     }
     return (UINavigationController *)parentViewController;

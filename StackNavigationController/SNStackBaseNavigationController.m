@@ -1,16 +1,16 @@
 //
-//  WUStackBaseNavigationController.m
+//  SNStackBaseNavigationController.m
 //
 //  Created by Jackie CHEUNG on 12-11-17.
 //  Copyright (c) 2012年 Jackie. All rights reserved.
 //
 
-#import "WUStackBaseNavigationController.h"
-
-@interface UINavigationBar (WUStackBaseNavigationBar)<NSCopying>
+#import "SNStackBaseNavigationController.h"
+#import "SNLevelViewTrantionGesture.h"
+@interface UINavigationBar (SNStackBaseNavigationBar)<NSCopying>
 @end
 
-@implementation UINavigationBar (WUStackBaseNavigationBar)
+@implementation UINavigationBar (SNStackBaseNavigationBar)
 /** confirm to protocol NSCopying to create snapshot */
 - (id)copyWithZone:(NSZone *)zone{
     UINavigationBar *copy = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:self]];
@@ -18,8 +18,8 @@
 }
 @end
 
-@interface WUStackBaseNavigationController ()<WUTransitionGestureDataSource>
-@property (nonatomic,strong) WULevelViewTrantionGesture *transitionGesture;
+@interface SNStackBaseNavigationController ()<SNTransitionGestureDataSource>
+@property (nonatomic,strong) SNLevelViewTrantionGesture *transitionGesture;
 @property (nonatomic,weak) UIViewController *fromViewController; //current transtion from which controller
 @property (nonatomic,weak) UIViewController *toViewController; //current trantion to which controller
 
@@ -35,10 +35,10 @@
 @property (nonatomic) BOOL SavedNavigationBarHiddenState;
 @end
 
-@implementation WUStackBaseNavigationController
+@implementation SNStackBaseNavigationController
 #pragma mark Property
-- (WUBaseNavigationTransitionStyle)navigationTranstionStyle{
-    return WUBaseNavigationTransitionStyleStack;
+- (SNBaseNavigationTransitionStyle)navigationTranstionStyle{
+    return SNBaseNavigationTransitionStyleStack;
 }
 
 #pragma mark duplicated codes
@@ -84,16 +84,16 @@
 - (void)transitionFromViewController:(UIViewController *)fromViewController
                     toViewController:(UIViewController *)toViewController
                             duration:(NSTimeInterval)duration
-                           direction:(WUBaseNavigationControllerTranstionDirection)direction
+                           direction:(SNBaseNavigationControllerTranstionDirection)direction
                           completion:(void (^)(BOOL))completion{    
     /*!FIX : only support dirtion from left or from right animtion now */
     WWViewTransitionType type;
-    if(direction == WUBaseNavigationControllerTranstionDirectionFromLeft)
-        type = WUViewTransitionTypeReverse;
-    else if(direction == WUBaseNavigationControllerTranstionDirectionFromRight)
-        type = WUViewTransitionTypeForward;
+    if(direction == SNBaseNavigationControllerTranstionDirectionFromLeft)
+        type = SNViewTransitionTypeReverse;
+    else if(direction == SNBaseNavigationControllerTranstionDirectionFromRight)
+        type = SNViewTransitionTypeForward;
     else {
-        type = WUViewTransitionTypeForward;
+        type = SNViewTransitionTypeForward;
     }
     
     [self.transitionGesture beginTransitionAnimation:type completion:^(void){
@@ -103,7 +103,7 @@
 
 - (void)transitionNavigationBarHidden:(BOOL)hidden
                              duration:(NSTimeInterval)duration
-                            direction:(WUBaseNavigationControllerTranstionDirection)direction
+                            direction:(SNBaseNavigationControllerTranstionDirection)direction
                            completion:(void (^)(BOOL))completion{
     
     void (^animationCompletionBlock)(BOOL finished) = ^(BOOL finished){
@@ -123,9 +123,9 @@
     }else{
         /*!! since we have handed over transtion animation to transtion gesture so we no need to run animation here.*/
         self.wasNavigationBarHidden = self.navigationBar.hidden;
-        [UIView animateWithDuration:WULevelViewTrantionGestureAnimationDurtion
+        [UIView animateWithDuration:SNLevelViewTrantionGestureAnimationDurtion
                               delay:0.0f
-                            options:UIViewAnimationCurveEaseInOut
+                            options:UIViewAnimationOptionCurveEaseInOut
                          animations:nil
                          completion:animationCompletionBlock];
     }
@@ -135,7 +135,7 @@
 #pragma mark View Recycle
 - (void)viewDidLoad{
     [super viewDidLoad];
-    WULevelViewTrantionGesture *gesture = [WULevelViewTrantionGesture gestureWithContentView:self.view DataSource:self];
+    SNLevelViewTrantionGesture *gesture = [SNLevelViewTrantionGesture gestureWithContentView:self.view DataSource:self];
     self.transitionGesture = gesture;
 }
 
@@ -187,12 +187,12 @@
 }
 
 #pragma mark WWTransitionGestureDataSource
-- (BOOL)gestureShouldHandleTransition:(WUViewTransitonGesture *)gestureRecognizer{
+- (BOOL)gestureShouldHandleTransition:(SNViewTransitonGesture *)gestureRecognizer{
     if(self.viewControllers.count < 2) return NO;
     else return YES;
 }
 
-- (void)gesture:(WUViewTransitonGesture *)gestureRecongizer WillBeginTransitionFromView:(UIView *)fromView toView:(UIView *)toView{
+- (void)gesture:(SNViewTransitonGesture *)gestureRecongizer WillBeginTransitionFromView:(UIView *)fromView toView:(UIView *)toView{
     /**!!!
      Either calling gestureRecongizer.beginTransitionAnimation or using gesture will come here.
      
@@ -227,10 +227,10 @@
     [self _replaceItemsByControllers:self.viewControllers toItemsByController:self.originalViewControllers forNavigationBar:self.snapShotNavigationBar animated:NO];
 }
 
-- (UIView *)gesture:(WUViewTransitonGesture *)gestureRecongizer transitionViewOnLevel:(WWTranstionGestureViewLevel)viewLevel{
+- (UIView *)gesture:(SNViewTransitonGesture *)gestureRecongizer transitionViewOnLevel:(WWTranstionGestureViewLevel)viewLevel{
     /*!! this method will be called twice to return view required respectivly.So DO NOT put alloc things here or you can put it under switch statement! */
     switch (viewLevel) {
-        case WUTranstionGestureViewLevelBottom:{
+        case SNTranstionGestureViewLevelBottom:{
             //view on the bottom.probably different depend on what view controller we are poping,could be the root view or any view of view controller in the stack.
             UIView *bottomView = nil;
             if(_navigationControllerFlags.isNavigationControllerPoping){
@@ -243,7 +243,7 @@
             
             return bottomView;
             
-        }case WUTranstionGestureViewLevelTop:{
+        }case SNTranstionGestureViewLevelTop:{
             //view on the top
             UIView *topView = nil;
             if(_navigationControllerFlags.isNavigationControllerPoping){
@@ -260,7 +260,7 @@
     return nil;
 }
 
-- (void)gesture:(WUViewTransitonGesture *)gestureRecongizer didEndTransitionFromView:(UIView *)fromView toView:(UIView *)toView isCanceld:(BOOL)gestureIsCanceled{
+- (void)gesture:(SNViewTransitonGesture *)gestureRecongizer didEndTransitionFromView:(UIView *)fromView toView:(UIView *)toView isCanceld:(BOOL)gestureIsCanceled{
     /*! there's serveral situration when this method is called.
         1.you call push or pop view controller method then gesture run the animation and come here.then you should do nothing since push or pop controller method have done the controller hierarchy managing work.
         2.you use gesture to swap views then come here.

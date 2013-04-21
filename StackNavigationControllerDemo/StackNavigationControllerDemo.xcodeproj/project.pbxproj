@@ -1,0 +1,345 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8C00C06417244E9600209AE0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C00C06317244E9600209AE0 /* UIKit.framework */; };
+		8C00C06617244E9600209AE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C00C06517244E9600209AE0 /* Foundation.framework */; };
+		8C00C06817244E9600209AE0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C00C06717244E9600209AE0 /* CoreGraphics.framework */; };
+		8C00C06E17244E9600209AE0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C00C06C17244E9600209AE0 /* InfoPlist.strings */; };
+		8C00C07017244E9600209AE0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C00C06F17244E9600209AE0 /* main.m */; };
+		8C00C07417244E9600209AE0 /* SNCDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C00C07317244E9600209AE0 /* SNCDAppDelegate.m */; };
+		8C00C07617244E9600209AE0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C00C07517244E9600209AE0 /* Default.png */; };
+		8C00C07817244E9600209AE0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C00C07717244E9600209AE0 /* Default@2x.png */; };
+		8C00C07A17244E9600209AE0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C00C07917244E9600209AE0 /* Default-568h@2x.png */; };
+		8C00C07D17244E9600209AE0 /* SNCDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C00C07C17244E9600209AE0 /* SNCDViewController.m */; };
+		8C00C09117244EED00209AE0 /* SNBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C00C08817244EED00209AE0 /* SNBaseNavigationController.m */; };
+		8C00C09217244EED00209AE0 /* SNGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C00C08A17244EED00209AE0 /* SNGesture.m */; };
+		8C00C09317244EED00209AE0 /* SNLevelViewTrantionGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C00C08C17244EED00209AE0 /* SNLevelViewTrantionGesture.m */; };
+		8C00C09417244EED00209AE0 /* SNStackBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C00C08E17244EED00209AE0 /* SNStackBaseNavigationController.m */; };
+		8C00C09517244EED00209AE0 /* SNViewTransitonGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C00C09017244EED00209AE0 /* SNViewTransitonGesture.m */; };
+		8C00C0981724508A00209AE0 /* easing.c in Sources */ = {isa = PBXBuildFile; fileRef = 8C00C0961724508900209AE0 /* easing.c */; };
+		8C00C09B1724513700209AE0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C00C09A1724513700209AE0 /* QuartzCore.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8C00C06017244E9600209AE0 /* StackNavigationControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackNavigationControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C00C06317244E9600209AE0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8C00C06517244E9600209AE0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8C00C06717244E9600209AE0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8C00C06B17244E9600209AE0 /* StackNavigationControllerDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StackNavigationControllerDemo-Info.plist"; sourceTree = "<group>"; };
+		8C00C06D17244E9600209AE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8C00C06F17244E9600209AE0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8C00C07117244E9600209AE0 /* StackNavigationControllerDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StackNavigationControllerDemo-Prefix.pch"; sourceTree = "<group>"; };
+		8C00C07217244E9600209AE0 /* SNCDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNCDAppDelegate.h; sourceTree = "<group>"; };
+		8C00C07317244E9600209AE0 /* SNCDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNCDAppDelegate.m; sourceTree = "<group>"; };
+		8C00C07517244E9600209AE0 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		8C00C07717244E9600209AE0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		8C00C07917244E9600209AE0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		8C00C07B17244E9600209AE0 /* SNCDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNCDViewController.h; sourceTree = "<group>"; };
+		8C00C07C17244E9600209AE0 /* SNCDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNCDViewController.m; sourceTree = "<group>"; };
+		8C00C08717244EED00209AE0 /* SNBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNBaseNavigationController.h; path = ../../StackNavigationController/SNBaseNavigationController.h; sourceTree = "<group>"; };
+		8C00C08817244EED00209AE0 /* SNBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SNBaseNavigationController.m; path = ../../StackNavigationController/SNBaseNavigationController.m; sourceTree = "<group>"; };
+		8C00C08917244EED00209AE0 /* SNGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNGesture.h; path = ../../StackNavigationController/SNGesture.h; sourceTree = "<group>"; };
+		8C00C08A17244EED00209AE0 /* SNGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SNGesture.m; path = ../../StackNavigationController/SNGesture.m; sourceTree = "<group>"; };
+		8C00C08B17244EED00209AE0 /* SNLevelViewTrantionGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNLevelViewTrantionGesture.h; path = ../../StackNavigationController/SNLevelViewTrantionGesture.h; sourceTree = "<group>"; };
+		8C00C08C17244EED00209AE0 /* SNLevelViewTrantionGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SNLevelViewTrantionGesture.m; path = ../../StackNavigationController/SNLevelViewTrantionGesture.m; sourceTree = "<group>"; };
+		8C00C08D17244EED00209AE0 /* SNStackBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNStackBaseNavigationController.h; path = ../../StackNavigationController/SNStackBaseNavigationController.h; sourceTree = "<group>"; };
+		8C00C08E17244EED00209AE0 /* SNStackBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SNStackBaseNavigationController.m; path = ../../StackNavigationController/SNStackBaseNavigationController.m; sourceTree = "<group>"; };
+		8C00C08F17244EED00209AE0 /* SNViewTransitonGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNViewTransitonGesture.h; path = ../../StackNavigationController/SNViewTransitonGesture.h; sourceTree = "<group>"; };
+		8C00C09017244EED00209AE0 /* SNViewTransitonGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SNViewTransitonGesture.m; path = ../../StackNavigationController/SNViewTransitonGesture.m; sourceTree = "<group>"; };
+		8C00C0961724508900209AE0 /* easing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = easing.c; path = ../../StackNavigationController/easing.c; sourceTree = "<group>"; };
+		8C00C0971724508A00209AE0 /* easing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = easing.h; path = ../../StackNavigationController/easing.h; sourceTree = "<group>"; };
+		8C00C099172450C300209AE0 /* StackNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StackNavigationController.h; path = ../../StackNavigationController/StackNavigationController.h; sourceTree = "<group>"; };
+		8C00C09A1724513700209AE0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8C00C05D17244E9600209AE0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C00C09B1724513700209AE0 /* QuartzCore.framework in Frameworks */,
+				8C00C06417244E9600209AE0 /* UIKit.framework in Frameworks */,
+				8C00C06617244E9600209AE0 /* Foundation.framework in Frameworks */,
+				8C00C06817244E9600209AE0 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8C00C05717244E9600209AE0 = {
+			isa = PBXGroup;
+			children = (
+				8C00C06917244E9600209AE0 /* StackNavigationControllerDemo */,
+				8C00C06217244E9600209AE0 /* Frameworks */,
+				8C00C06117244E9600209AE0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8C00C06117244E9600209AE0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8C00C06017244E9600209AE0 /* StackNavigationControllerDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8C00C06217244E9600209AE0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8C00C09A1724513700209AE0 /* QuartzCore.framework */,
+				8C00C06317244E9600209AE0 /* UIKit.framework */,
+				8C00C06517244E9600209AE0 /* Foundation.framework */,
+				8C00C06717244E9600209AE0 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8C00C06917244E9600209AE0 /* StackNavigationControllerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				8C00C08617244EBB00209AE0 /* StackNavigationController */,
+				8C00C07217244E9600209AE0 /* SNCDAppDelegate.h */,
+				8C00C07317244E9600209AE0 /* SNCDAppDelegate.m */,
+				8C00C07B17244E9600209AE0 /* SNCDViewController.h */,
+				8C00C07C17244E9600209AE0 /* SNCDViewController.m */,
+				8C00C06A17244E9600209AE0 /* Supporting Files */,
+			);
+			path = StackNavigationControllerDemo;
+			sourceTree = "<group>";
+		};
+		8C00C06A17244E9600209AE0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8C00C06B17244E9600209AE0 /* StackNavigationControllerDemo-Info.plist */,
+				8C00C06C17244E9600209AE0 /* InfoPlist.strings */,
+				8C00C06F17244E9600209AE0 /* main.m */,
+				8C00C07117244E9600209AE0 /* StackNavigationControllerDemo-Prefix.pch */,
+				8C00C07517244E9600209AE0 /* Default.png */,
+				8C00C07717244E9600209AE0 /* Default@2x.png */,
+				8C00C07917244E9600209AE0 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8C00C08617244EBB00209AE0 /* StackNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				8C00C0961724508900209AE0 /* easing.c */,
+				8C00C0971724508A00209AE0 /* easing.h */,
+				8C00C08717244EED00209AE0 /* SNBaseNavigationController.h */,
+				8C00C08817244EED00209AE0 /* SNBaseNavigationController.m */,
+				8C00C08917244EED00209AE0 /* SNGesture.h */,
+				8C00C08A17244EED00209AE0 /* SNGesture.m */,
+				8C00C08B17244EED00209AE0 /* SNLevelViewTrantionGesture.h */,
+				8C00C08C17244EED00209AE0 /* SNLevelViewTrantionGesture.m */,
+				8C00C08D17244EED00209AE0 /* SNStackBaseNavigationController.h */,
+				8C00C08E17244EED00209AE0 /* SNStackBaseNavigationController.m */,
+				8C00C08F17244EED00209AE0 /* SNViewTransitonGesture.h */,
+				8C00C09017244EED00209AE0 /* SNViewTransitonGesture.m */,
+				8C00C099172450C300209AE0 /* StackNavigationController.h */,
+			);
+			name = StackNavigationController;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8C00C05F17244E9600209AE0 /* StackNavigationControllerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C00C08317244E9600209AE0 /* Build configuration list for PBXNativeTarget "StackNavigationControllerDemo" */;
+			buildPhases = (
+				8C00C05C17244E9600209AE0 /* Sources */,
+				8C00C05D17244E9600209AE0 /* Frameworks */,
+				8C00C05E17244E9600209AE0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StackNavigationControllerDemo;
+			productName = StackNavigationControllerDemo;
+			productReference = 8C00C06017244E9600209AE0 /* StackNavigationControllerDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8C00C05817244E9600209AE0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SNCD;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = Jackie;
+			};
+			buildConfigurationList = 8C00C05B17244E9600209AE0 /* Build configuration list for PBXProject "StackNavigationControllerDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8C00C05717244E9600209AE0;
+			productRefGroup = 8C00C06117244E9600209AE0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8C00C05F17244E9600209AE0 /* StackNavigationControllerDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8C00C05E17244E9600209AE0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C00C06E17244E9600209AE0 /* InfoPlist.strings in Resources */,
+				8C00C07617244E9600209AE0 /* Default.png in Resources */,
+				8C00C07817244E9600209AE0 /* Default@2x.png in Resources */,
+				8C00C07A17244E9600209AE0 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8C00C05C17244E9600209AE0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C00C07017244E9600209AE0 /* main.m in Sources */,
+				8C00C07417244E9600209AE0 /* SNCDAppDelegate.m in Sources */,
+				8C00C07D17244E9600209AE0 /* SNCDViewController.m in Sources */,
+				8C00C09117244EED00209AE0 /* SNBaseNavigationController.m in Sources */,
+				8C00C09217244EED00209AE0 /* SNGesture.m in Sources */,
+				8C00C09317244EED00209AE0 /* SNLevelViewTrantionGesture.m in Sources */,
+				8C00C09417244EED00209AE0 /* SNStackBaseNavigationController.m in Sources */,
+				8C00C09517244EED00209AE0 /* SNViewTransitonGesture.m in Sources */,
+				8C00C0981724508A00209AE0 /* easing.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8C00C06C17244E9600209AE0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C00C06D17244E9600209AE0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8C00C08117244E9600209AE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		8C00C08217244E9600209AE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8C00C08417244E9600209AE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StackNavigationControllerDemo/StackNavigationControllerDemo-Prefix.pch";
+				INFOPLIST_FILE = "StackNavigationControllerDemo/StackNavigationControllerDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8C00C08517244E9600209AE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StackNavigationControllerDemo/StackNavigationControllerDemo-Prefix.pch";
+				INFOPLIST_FILE = "StackNavigationControllerDemo/StackNavigationControllerDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8C00C05B17244E9600209AE0 /* Build configuration list for PBXProject "StackNavigationControllerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C00C08117244E9600209AE0 /* Debug */,
+				8C00C08217244E9600209AE0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8C00C08317244E9600209AE0 /* Build configuration list for PBXNativeTarget "StackNavigationControllerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C00C08417244E9600209AE0 /* Debug */,
+				8C00C08517244E9600209AE0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8C00C05817244E9600209AE0 /* Project object */;
+}
