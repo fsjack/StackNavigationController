@@ -1,9 +1,8 @@
 //
 //  SNGesture.m
-//  WeicoUI
 //
 //  Created by Jackie CHEUNG on 12-12-20.
-//  Copyright (c) 2012年 微酷奥(北京)科技有限公司. All rights reserved.
+//  Copyright (c) 2012年 Jackie. All rights reserved.
 //
 
 #import "SNGesture.h"

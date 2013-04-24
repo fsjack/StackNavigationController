@@ -1,9 +1,8 @@
 //
-//  WWViewTransitonGesture.m
-//  iweeklydemo3
+//  SNViewTransitonGesture.m
 //
 //  Created by Jackie on 12-10-21.
-//  Copyright (c) 2012年 eico design. All rights reserved.
+//  Copyright (c) 2012年 Jackie. All rights reserved.
 //
 
 #import "SNViewTransitonGesture.h"
