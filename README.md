@@ -7,7 +7,7 @@ stackNavigationController is a navigationController with stack animation and swi
 
 - Copy over the `StackNavigationController` folder to your project folder.
 - Import `QuartzCore` Library to your project
-- `#import "StackNavigationController`
+- `#import "StackNavigationController"`
 
 
 ##Usage
